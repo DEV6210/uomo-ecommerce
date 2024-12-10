@@ -64,7 +64,7 @@ const DealTimer = () => {
       <div className="mainDeal">
         <div className="dealTimer">
           <div className="dealTimerMainContent">
-            <div className="dealTimeContent">
+            <div className="dealTimeContent" style={{color:'#000'}}>
               <p>Deal of the Week</p>
               <h3>
                 Spring
@@ -76,7 +76,7 @@ const DealTimer = () => {
                 </Link>
               </div>
             </div>
-            <div className="dealTimeCounter">
+            <div className="dealTimeCounter" style={{color:'#000'}}>
               <div className="dealTimeDigit">
                 <h4>{timeLeft.days}</h4>
                 <p>Days</p>

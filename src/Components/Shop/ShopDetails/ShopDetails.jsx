@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ShopDetails.css";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,7 @@ import { IoFilterSharp, IoClose } from "react-icons/io5";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { FaCartPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { ThemeContext } from "../../../ThemeContext";
 
 const ShopDetails = () => {
   const dispatch = useDispatch();
@@ -77,6 +78,8 @@ const ShopDetails = () => {
     }
   };
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <>
       <div className="shopDetails">
@@ -97,8 +100,8 @@ const ShopDetails = () => {
                 <IoFilterSharp />
                 <p>Filter</p>
               </div>
-              <div className="shopDetailsSort">
-                <select name="sort" id="sort">
+              <div className="shopDetailsSort" >
+                <select style={{ background: theme === 'dark' ? '#121212' : '#fff' }} name="sort" id="sort">
                   <option value="default">Default Sorting</option>
                   <option value="Featured">Featured</option>
                   <option value="bestSelling">Best Selling</option>
@@ -133,7 +136,7 @@ const ShopDetails = () => {
                           className="sdProduct_back"
                         />
                       </Link>
-                      <h4 onClick={() => handleAddToCart(product)}>
+                      <h4 style={{ color: '#000' }} onClick={() => handleAddToCart(product)}>
                         Add to Cart
                       </h4>
                     </div>

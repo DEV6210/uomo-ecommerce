@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Footer.css";
 import logo from "../../Assets/logo.png";
 import paymentIcon from "../../Assets/paymentIcon.png";
@@ -9,6 +9,7 @@ import { FaYoutube } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../ThemeContext";
 
 const Footer = () => {
   const handleSubscribe = (e) => {
@@ -23,9 +24,11 @@ const Footer = () => {
     });
   };
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <>
-      <footer className="footer">
+      <footer className={theme === 'dark' ? 'footer2' : 'footer'}>
         <div className="footer__container">
           <div className="footer_left">
             <div className="footer_logo_container">

@@ -98,7 +98,7 @@
 
 .loginSignUpForgetPass a {
   font-size: 14px;
-  color: black;
+  /* color: black; */
 }
 
 /* custom radio button */
@@ -161,7 +161,7 @@
 }
 
 .loginSignUpTabsContentLoginText p span {
-  color: black;
+  /* color: black; */
   cursor: pointer;
   text-decoration: underline;
   font-weight: 500;

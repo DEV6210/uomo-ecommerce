@@ -130,7 +130,7 @@ const Trendy = () => {
                           className="trendyProduct_back"
                         />
                       </Link>
-                      <h4 onClick={() => handleAddToCart(product)}>
+                      <h4 style={{color:'#000'}} onClick={() => handleAddToCart(product)}>
                         Add to Cart
                       </h4>
                     </div>

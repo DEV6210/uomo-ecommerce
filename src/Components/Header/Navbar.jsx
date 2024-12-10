@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 
 import { useSelector } from "react-redux";
@@ -22,9 +22,12 @@ import { FaYoutube } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 
 import Badge from "@mui/material/Badge";
+import ThemeSwitch from "../theme/ThemeSwitch";
+import { ThemeContext } from "../../ThemeContext";
 
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -43,14 +46,14 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Menu */}
-      <nav className="navBar">
+      <nav className={theme === 'dark' ? 'navBar2' : 'navBar'}>
         <div className="logoLinkContainer">
           <div className="logoContainer">
             <Link to="/" onClick={scrollToTop}>
               <img src={logo} alt="Logo" />
             </Link>
           </div>
-          <div className="linkContainer">
+          <div className={theme === 'dark' ? 'linkContainer2' : 'linkContainer'}>
             <ul>
               <li>
                 <Link to="/" onClick={scrollToTop}>
@@ -74,14 +77,17 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/contact" onClick={scrollToTop}>
-                  CONTACT
+                  <span className="dark:text-white" >
+
+                    CONTACT
+                  </span>
                 </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="iconContainer">
-          <FiSearch size={22} onClick={scrollToTop} />
+          <FiSearch color={theme === 'dark' ? '#fff' : '#000'} size={22} onClick={scrollToTop} />
           <Link to="/loginSignUp" onClick={scrollToTop}>
             <FaRegUser size={22} />
           </Link>
@@ -97,18 +103,21 @@ const Navbar = () => {
               <RiShoppingBagLine size={22} />
             </Badge>
           </Link>
-          <FiHeart size={22} onClick={scrollToTop} />
+          <FiHeart color={theme === 'dark' ? '#fff' : '#000'} size={22} onClick={scrollToTop} />
           {/* <RiMenu2Line size={22} /> */}
+          <div>
+            <ThemeSwitch />
+          </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <nav>
-        <div className="mobile-nav">
+        <div className={theme === 'dark' ? 'mobile-nav2' : 'mobile-nav'}>
           {mobileMenuOpen ? (
-            <MdOutlineClose size={22} onClick={toggleMobileMenu} />
+            <MdOutlineClose className={theme === 'dark' ? '#fff' : '#000'} size={22} onClick={toggleMobileMenu} />
           ) : (
-            <RiMenu2Line size={22} onClick={toggleMobileMenu} />
+            <RiMenu2Line className={theme === 'dark' ? '#fff' : '#000'} size={22} onClick={toggleMobileMenu} />
           )}
           <div className="logoContainer">
             <Link to="/">
@@ -124,15 +133,20 @@ const Navbar = () => {
                 horizontal: "right",
               }}
             >
-              <RiShoppingBagLine size={22} color="black" />
+              <RiShoppingBagLine size={22} />
             </Badge>
           </Link>
+
+          <div>
+            <ThemeSwitch />
+          </div>
         </div>
-        <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
+
+        <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`} style={{ background: theme === 'dark' ? '#000' : '#fff' }} >
           <div className="mobile-menuTop">
             <div className="mobile-menuSearchBar">
               <div className="mobile-menuSearchBarContainer">
-                <input type="text" placeholder="Search products" />
+                <input type="text" placeholder="Search products" style={{ background: 'none' }} />
                 <Link to="/shop">
                   <FiSearch size={22} onClick={toggleMobileMenu} />
                 </Link>
@@ -141,27 +155,27 @@ const Navbar = () => {
             <div className="mobile-menuList">
               <ul>
                 <li>
-                  <Link to="/" onClick={toggleMobileMenu}>
+                  <Link to="/" style={{ color: theme === 'dark' ? '#fff' : '#1B1B1B' }} onClick={toggleMobileMenu}>
                     HOME
                   </Link>
                 </li>
                 <li>
-                  <Link to="/shop" onClick={toggleMobileMenu}>
+                  <Link to="/shop" style={{ color: theme === 'dark' ? '#fff' : '#1B1B1B' }} onClick={toggleMobileMenu}>
                     SHOP
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog" onClick={toggleMobileMenu}>
+                  <Link to="/blog" style={{ color: theme === 'dark' ? '#fff' : '#1B1B1B' }} onClick={toggleMobileMenu}>
                     BLOG
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" onClick={toggleMobileMenu}>
+                  <Link to="/about" style={{ color: theme === 'dark' ? '#fff' : '#1B1B1B' }} onClick={toggleMobileMenu}>
                     ABOUT
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" onClick={toggleMobileMenu}>
+                  <Link to="/contact" style={{ color: theme === 'dark' ? '#fff' : '#1B1B1B' }} onClick={toggleMobileMenu}>
                     CONTACT
                   </Link>
                 </li>

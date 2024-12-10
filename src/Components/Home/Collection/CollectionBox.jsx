@@ -15,8 +15,8 @@ const CollectionBox = () => {
     <>
       <div className="collection">
         <div className="collectionLeft">
-          <p className="col-p">Hot List</p>
-          <h3 className="col-h3">
+          <p className="col-p defaltblack">Hot List</p>
+          <h3 className="col-h3 defaltblack">
             <span>Women</span> Collection
           </h3>
           <div className="col-link">
@@ -27,8 +27,8 @@ const CollectionBox = () => {
         </div>
         <div className="collectionRight">
           <div className="collectionTop">
-            <p className="col-p">Hot List</p>
-            <h3 className="col-h3">
+            <p className="col-p defaltblack">Hot List</p>
+            <h3 className="col-h3 defaltblack">
               <span>Men</span> Collection
             </h3>
             <div className="col-link">
@@ -39,8 +39,8 @@ const CollectionBox = () => {
           </div>
           <div className="collectionBottom">
             <div className="box1">
-              <p className="col-p">Hot List</p>
-              <h3 className="col-h3">
+              <p className="col-p defaltblack">Hot List</p>
+              <h3 className="col-h3 defaltblack">
                 <span>Kids</span> Collection
               </h3>
               <div className="col-link">
@@ -50,10 +50,10 @@ const CollectionBox = () => {
               </div>
             </div>
             <div className="box2">
-              <h3 className="col-h3">
+              <h3 className="col-h3 defaltblack">
                 <span>E-gift</span> Cards
               </h3>
-              <p className="col-p">
+              <p className="col-p defaltblack">
                 Surprise someone with the gift they really want.
               </p>
               <div className="col-link">

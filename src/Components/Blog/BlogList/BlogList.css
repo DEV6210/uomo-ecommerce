@@ -15,6 +15,7 @@
   padding-left: 140px;
   gap: 15px;
   height: 440px;
+  color: #000;
 }
 
 .blogListHeader h2 {
@@ -93,7 +94,7 @@
 
 .blogPostContentHeading a {
   text-decoration: none;
-  color: black;
+  /* color: black; */
   font-size: 18px;
 }
 
@@ -106,7 +107,7 @@
   text-decoration: none;
   font-size: 14px;
   text-transform: uppercase;
-  color: black;
+  /* color: black; */
   font-weight: 500;
   position: relative;
 }

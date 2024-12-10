@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -20,8 +20,11 @@ import TermsConditions from "./Pages/TermsConditions";
 import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
 import Popup from "./Components/PopupBanner/Popup";
 import { Toaster } from "react-hot-toast";
+import ThemeProvider, { ThemeContext } from "./ThemeContext";
 
-const App = () => {
+const AppContent = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <>
       <Popup />
@@ -46,6 +49,14 @@ const App = () => {
         <Toaster />
       </BrowserRouter>
     </>
+  );
+};
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 

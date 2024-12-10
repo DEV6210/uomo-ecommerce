@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Popup.css";
 
 import popupImg from "../../Assets/newsletter-popup.jpg";
+import { ThemeContext } from "../../ThemeContext";
 
 const Popup = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -14,10 +15,12 @@ const Popup = () => {
     }, 300);
   };
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     showPopup && (
       <div className="popup-overlay">
-        <div className={`popup-content ${fadeOut ? "fade-out" : ""}`}>
+        <div className={`${theme === 'dark' ? 'popup-content2' : 'popup-content'}  ${fadeOut ? "fade-out" : ""}`} >
           <button className="close-button" onClick={handleClose}>
             ×
           </button>
